@@ -344,9 +344,6 @@ public class ProcessingService extends Service {
 
     private void tearDownPipeline() {
         ImageFilter.resetStatics();
-        FiltersManager.getPreviewManager().freeRSFilterScripts();
-        FiltersManager.getManager().freeRSFilterScripts();
-        FiltersManager.getHighresManager().freeRSFilterScripts();
         FiltersManager.reset();
     }
 
