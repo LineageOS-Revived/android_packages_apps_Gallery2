@@ -49,7 +49,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
-import org.codeaurora.gallery.R;
+import com.android.gallery3d.R;
 
 import com.android.gallery3d.app.GalleryActivity;
 import com.android.gallery3d.common.Utils;
