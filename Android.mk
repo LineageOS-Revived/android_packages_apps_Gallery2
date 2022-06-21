@@ -4,8 +4,6 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE_TAGS := optional
 
-LOCAL_JAVA_LIBRARIES := telephony-common
-
 LOCAL_STATIC_ANDROID_LIBRARIES := \
     com.google.android.material_material \
     androidx.annotation_annotation \
@@ -33,9 +31,9 @@ LOCAL_PACKAGE_NAME := Gallery2
 
 LOCAL_SYSTEM_EXT_MODULE := true
 
-LOCAL_PRIVATE_PLATFORM_APIS := true
-
 LOCAL_OVERRIDES_PACKAGES := Gallery Gallery3D GalleryNew3D
+
+LOCAL_SDK_VERSION := current
 
 LOCAL_AAPT_FLAGS += --rename-manifest-package com.android.gallery3d
 
