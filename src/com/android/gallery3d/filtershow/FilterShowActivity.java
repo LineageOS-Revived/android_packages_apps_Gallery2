@@ -2559,6 +2559,7 @@ public class FilterShowActivity extends AbstractPermissionActivity implements On
                 requestCode);
     }
 
+    @SuppressWarnings("MissingSuperCall") // TODO: Fix me
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
