@@ -73,10 +73,7 @@ public class ImageShow extends View implements OnGestureListener,
     protected Rect mImageBounds = new Rect();
     private boolean mTouchShowOriginal = false;
 
-    private NinePatchDrawable mShadow = null;
-    private Rect mShadowBounds = new Rect();
-    private int mShadowMargin = 15; // not scaled, fixed in the asset
-    private boolean mShadowDrawn = false;
+    private int mShadowMargin = 0; // not scaled, fixed in the asset
 
     protected Point mTouchDown = new Point();
     protected Point mTouch = new Point();
@@ -169,7 +166,6 @@ public class ImageShow extends View implements OnGestureListener,
         mTextSize = res.getDimensionPixelSize(R.dimen.photoeditor_text_size);
         mTextPadding = res.getDimensionPixelSize(R.dimen.photoeditor_text_padding);
         mBackgroundColor = res.getColor(R.color.background_screen);
-        mShadow = (NinePatchDrawable) res.getDrawable(R.drawable.geometry_shadow);
         setupGestureDetector(context);
         mActivity = (FilterShowActivity) context;
         if (sMask == null) {
@@ -292,8 +288,6 @@ public class ImageShow extends View implements OnGestureListener,
         }
 
         canvas.save();
-
-        mShadowDrawn = false;
 
         if (!drawCompareImage(canvas, MasterImage.getImage().getOriginalBitmapLarge())) {
             drawImageAndAnimate(canvas, getImageToDraw());
@@ -439,7 +433,6 @@ public class ImageShow extends View implements OnGestureListener,
                     maskShader.setLocalMatrix(mShaderMatrix);
                     mMaskPaint.setShader(maskShader);
 
-                    drawShadow(canvas, mImageBounds); // as needed
                     canvas.drawBitmap(previousImage, m, mPaint);
                     canvas.clipRect(mImageBounds);
                     canvas.translate(x, y);
@@ -496,7 +489,6 @@ public class ImageShow extends View implements OnGestureListener,
             }
 
             if (needsToDrawImage) {
-                drawShadow(canvas, previousBounds); // as needed
 
                 if(hasFusionApplied() || this instanceof ImageFusion) {
                     previousImage.setHasAlpha(true);
@@ -506,7 +498,6 @@ public class ImageShow extends View implements OnGestureListener,
 
             canvas.restore();
         } else {
-            drawShadow(canvas, mImageBounds); // as needed
 
             if(hasFusionApplied() || this instanceof ImageFusion) {
                 image.setHasAlpha(true);
@@ -529,16 +520,6 @@ public class ImageShow extends View implements OnGestureListener,
                 (int) ty + mShadowMargin,
                 (int) (w + tx) - mShadowMargin,
                 (int) (h + ty) - mShadowMargin);
-    }
-
-    private void drawShadow(Canvas canvas, Rect d) {
-        if (!mShadowDrawn && !hasFusionApplied() && !(this instanceof ImageFusion)) {
-            mShadowBounds.set(d.left - mShadowMargin, d.top - mShadowMargin,
-                    d.right + mShadowMargin, d.bottom + mShadowMargin);
-            mShadow.setBounds(mShadowBounds);
-            mShadow.draw(canvas);
-            mShadowDrawn = true;
-        }
     }
 
     public boolean drawCompareImage(Canvas canvas, Bitmap image) {
