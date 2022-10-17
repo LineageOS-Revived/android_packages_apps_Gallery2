@@ -398,7 +398,8 @@ public class FilterShowActivity extends AbstractPermissionActivity implements On
         clearGalleryBitmapPool();
         registerFilter();
         doBindService();
-        getWindow().setBackgroundDrawable(new ColorDrawable(Color.GRAY));
+        getWindow().setBackgroundDrawable(new ColorDrawable(
+                getResources().getColor(R.color.primary)));
         setContentView(R.layout.filtershow_splashscreen);
         Window win = getWindow();
         WindowManager.LayoutParams winParams = win.getAttributes();
