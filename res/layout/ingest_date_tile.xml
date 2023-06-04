@@ -32,7 +32,7 @@
             android:includeFontPadding="false"
             android:textSize="16sp"
             android:textAllCaps="true"
-            android:fontFamily="sans-serif"
+            android:fontFamily="@*android:string/config_bodyFontFamily"
             android:textColor="@color/ingest_date_tile_text" />
         <TextView
             android:id="@+id/date_tile_year"
@@ -43,7 +43,7 @@
             android:layout_gravity="top|end"
             android:includeFontPadding="false"
             android:textSize="13sp"
-            android:fontFamily="sans-serif-light"
+            android:fontFamily="@*android:string/config_headlineFontFamily"
             android:textColor="@color/ingest_date_tile_text" />
         <TextView
             android:id="@+id/date_tile_day"
@@ -58,7 +58,7 @@
             android:includeFontPadding="false"
             android:textSize="44sp"
             android:textStyle="bold"
-            android:fontFamily="sans-serif"
+            android:fontFamily="@*android:string/config_bodyFontFamily"
             android:textColor="@color/ingest_date_tile_text" />
     </GridLayout>
 </com.android.gallery3d.ingest.ui.DateTileView>

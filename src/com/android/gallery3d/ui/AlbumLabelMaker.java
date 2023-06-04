@@ -93,7 +93,7 @@ public class AlbumLabelMaker {
         paint.setTextSize(textSize);
         paint.setAntiAlias(true);
         paint.setColor(color);
-        paint.setTypeface(Typeface.SANS_SERIF);
+        paint.setTypeface(Typeface.create("@*android:string/config_bodyFontFamily", Typeface.NORMAL));
         //paint.setShadowLayer(2f, 0f, 0f, Color.LTGRAY);
         if (isBold) {
             paint.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
