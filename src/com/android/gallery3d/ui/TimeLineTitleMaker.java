@@ -66,7 +66,7 @@ public class TimeLineTitleMaker {
         paint.setTextSize(textSize);
         paint.setAntiAlias(true);
         paint.setColor(color);
-        paint.setTypeface(Typeface.SANS_SERIF);
+        paint.setTypeface(Typeface.create("@*android:string/config_bodyFontFamily", Typeface.NORMAL));
         if (isBold) {
             paint.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
         }
