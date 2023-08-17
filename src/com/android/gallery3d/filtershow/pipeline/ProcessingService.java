@@ -302,7 +302,6 @@ public class ProcessingService extends Service {
     public void setupPipeline() {
         Resources res = getResources();
         FiltersManager.setResources(res);
-        CachingPipeline.createRenderscriptContext(this);
 
         FiltersManager filtersManager = FiltersManager.getManager();
         filtersManager.addLooks(this);
@@ -349,7 +348,6 @@ public class ProcessingService extends Service {
         FiltersManager.getManager().freeRSFilterScripts();
         FiltersManager.getHighresManager().freeRSFilterScripts();
         FiltersManager.reset();
-        CachingPipeline.destroyRenderScriptContext();
     }
 
     static {
