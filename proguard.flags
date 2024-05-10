@@ -27,6 +27,10 @@
   <init>(...);
 }
 
+-keep class * extends com.android.gallery3d.filtershow.controller.Control {
+  <init>(...);
+}
+
 -keep class com.android.camera.CameraActivity {
   public boolean isRecording();
   public long getAutoFocusTime();
